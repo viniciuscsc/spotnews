@@ -32,8 +32,8 @@ class News(models.Model):
         max_length=200,
         validators=[validar_titulo],
     )
-    content = models.CharField(blank=False)
-    author = models.ForeignKey("User")
+    content = models.TextField(blank=False)
+    author = models.ForeignKey("User", on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
     image = models.ImageField(blank=True)
     categories = models.ManyToManyField("Category")
