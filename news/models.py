@@ -34,7 +34,7 @@ class News(models.Model):
     )
     content = models.TextField(blank=False)
     author = models.ForeignKey("User", on_delete=models.CASCADE)
-    created_at = models.DateField(auto_now_add=True)
+    created_at = models.DateField()
     image = models.ImageField(upload_to="img", blank=True)
     categories = models.ManyToManyField("Category")
 
