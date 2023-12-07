@@ -4,11 +4,9 @@
 {% block title %}Formulário para Nova Categoria{% endblock %}
 
 {% block content %}
-<div>
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ forms.as_div }}
-        <button type="submit">Salvar</button>
-    </form>
-</div>
+<form method="post" action="{% url 'categories-form' %}">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button type="submit">Salvar</button>
+</form>
 {% endblock %}

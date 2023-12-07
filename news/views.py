@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from news.models import News
+from news.models import News, Category
 from news.forms import NewCategoryForm
 
 
@@ -15,10 +15,14 @@ def detalhes_noticia(request, id_noticia):
 
 
 def new_category_form(request):
+    form = NewCategoryForm()
+
     if request.method == "POST":
         form = NewCategoryForm(request.POST)
-        if form.is_valid():
-            return redirect("home-page")
+
+    if form.is_valid():
+        Category.objects.create(**form.cleaned_data)
+        return redirect("home-page")
 
     context = {"form": form}
     return render(request, "categories_form.html", context)
