@@ -1,14 +1,14 @@
-{% extends "nase.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}Página de Detalhes da Notícia{% endblock %}
 
 {% block content %}
 <div>
-    <h1>{{ new.title }}</h1>
+    <h1 class="news-title">{{ new.title }}</h1>
     <p class="news-content">{{ new.content }}</p>
 
-    {% for category in categories.all %}
+    {% for category in new.categories.all %}
     <span class="news-categories">{{ category.name }}</span>
     {% endfor %}
 

@@ -9,5 +9,5 @@ def home(request):
 
 
 def detalhes_noticia(request, id_noticia):
-    context = {"news": News.objects.get(id=id_noticia)}
+    context = {"new": News.objects.get(id=id_noticia)}
     return render(request, "news_details.html", context)
