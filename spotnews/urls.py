@@ -29,7 +29,7 @@ router.register(r"users", UserView)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("news.urls")),
-    path("api/", include(router.urls)),
+    path("api/", include(router.urls)),  # /api
 ]
 
 if settings.DEBUG:
